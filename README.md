@@ -89,7 +89,7 @@ Bot:  这看起来是诈骗。
 | Rule-based triage with plain-language reasons | LLM agent with tool calls, using the included system prompt |
 | 4-language replies, voice-style mode, hotline by country | Real speech in and out |
 | "Already scammed" emergency guidance (in the system prompt) | Phone-alert mock-up and pilot |
-| 18 unit tests (/tests.md), sample evaluation, CI, Docker | Larger test set; review by native speakers |
+| 18 unit tests (/data/samples/test_case.jsonl), sample evaluation, CI, Docker | Larger test set; review by native speakers |
 
 ## 🧭 Why it fits the ASEAN Guide
 
