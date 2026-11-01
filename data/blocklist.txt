@@ -1,0 +1,6 @@
+# Confirmed scam numbers and domains, one per line. '#' starts a comment.
+# Populate ONLY from official sources (for example regulator or police published lists).
+# Never add numbers from user reports without review, and never commit real victims' data.
+# Example format (fictional entries for testing):
++60 12-000 0000
+scam-example-test.invalid

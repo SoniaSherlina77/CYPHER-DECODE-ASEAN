@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.env
+.DS_Store
+# Never commit real victim data or real message exports
+data/private/
+*.private.jsonl

@@ -1,0 +1,16 @@
+{"id": "en-police-safe-account", "lang": "en", "label": "scam", "text": "This is the police. Your IC is linked to a crime. You must transfer your money to a safe account immediately."}
+{"id": "ms-polis-akaun-selamat", "lang": "ms", "label": "scam", "text": "Ada orang call kata dari polis, kata IC saya ada masalah, suruh transfer duit ke akaun selamat."}
+{"id": "zh-police-safe-account", "lang": "zh", "label": "scam", "text": "我是警察，你的账户涉嫌洗钱，请立即转账到安全账户配合调查。"}
+{"id": "en-bank-lookalike-link", "lang": "en", "label": "scam", "text": "Maybank: Your account is locked. Verify now at http://maybank2u-secure-login.xyz/verify"}
+{"id": "en-parcel-short-link", "lang": "en", "label": "scam", "text": "Poslaju: your parcel is held. Pay RM2.50 redelivery fee at https://bit.ly/3xYz"}
+{"id": "ms-prize-apk", "lang": "ms", "label": "scam", "text": "Tahniah! Anda menang RM5000. Muat turun app di http://hadiah-menang.top/win.apk"}
+{"id": "en-investment", "lang": "en", "label": "scam", "text": "Guaranteed returns 5% daily! Join our group to double your money."}
+{"id": "zh-job", "lang": "zh", "label": "scam", "text": "兼职日结，在家工作，每天赚500，加微信"}
+{"id": "manglish-police-call", "lang": "manglish", "label": "scam", "text": "Eh you got call from police ah, they say your account got problem, must transfer money lah"}
+{"id": "en-otp-request", "lang": "en", "label": "scam", "text": "Hi this is the bank officer, please send me the TAC number you just received immediately"}
+{"id": "manglish-ok", "lang": "en", "label": "benign", "text": "Hi mak, I will reach home at 6pm. Dinner nanti."}
+{"id": "en-real-otp-notice", "lang": "en", "label": "benign", "text": "Your OTP is 482913. Do not share this code with anyone."}
+{"id": "en-clinic-reminder", "lang": "en", "label": "benign", "text": "Reminder: your clinic appointment is tomorrow at 10am."}
+{"id": "zh-tea", "lang": "zh", "label": "benign", "text": "今天下午三点去喝茶，你来吗？"}
+{"id": "ms-family", "lang": "ms", "label": "benign", "text": "Mak, esok kita makan kat rumah nenek ya."}
+{"id": "en-official-link", "lang": "en", "label": "benign", "text": "Open your Maybank app or visit https://www.maybank2u.com.my to check your statement."}
