@@ -1,6 +1,6 @@
 # 🛡️ CYPHER DECODE ASEAN
 
-![IMG_3491](docs/IMG_3491.PNG)
+![IMG_3496](docs/IMG_3496.PNG)
 
 A prototype built for the Meta AI Global Developer Hackathon 2026 - Startup Track
 
