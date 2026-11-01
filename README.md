@@ -1,6 +1,6 @@
 # 🛡️ CYPHER DECODE ASEAN
 
-![IMG_3491](IMG_3491.PNG)
+![IMG_3491](docs/IMG_3491.PNG)
 
 **Languages:** Bahasa Malaysia · English · 中文 · Manglish  
 
@@ -92,7 +92,7 @@ Bot:  这看起来是诈骗。
 - Targets the **call to action** stage, where the Guide says interruption matters (p.12).
 - Follows the Guide's **public education and reporting** measures: warn before the point of action, give a reporting route (Ch.7, pp.70-72).
 - Reuses the Philippine public campaign's routine, **Identify, Ignore, Report, Block** (p.70), as Stop, Check, Report and block.
-- Honest about scope: the Guide covers telco calls and SMS and is written for governments and telcos. This is a user-side tool, not a telco control. Mapping: [`/asean-alignment.md`](/asean-alignment.md).
+- Honest about scope: the Guide covers telco calls and SMS and is written for governments and telcos. This is a user-side tool, not a telco control. Mapping: [`/asean-alignment.md`](docs/asean-alignment.md).
 
 ## 🚀 Run it in 30 seconds
 
@@ -117,6 +117,6 @@ python -m unittest discover -s tests      # 18 tests
 
 ## 📚 More
 
-[Full README](/README.md) · [Objectives](/objectives.md) · [Architecture](/architecture.md) · [Ethics and safety](/ethics-and-safety.md) · [System prompt](/system_instructions.md) · [ASEAN Alignment](/asean-alignment.md)
+[Full README](/README.md) · [Objectives](docs/objectives.md) · [Architecture](docs/architecture.md) · [Ethics and safety](docs/ethics-and-safety.md) · [System prompt](docs/system_instructions.md) · [ASEAN Alignment](docs/asean-alignment.md)
 
 MIT licence. 
