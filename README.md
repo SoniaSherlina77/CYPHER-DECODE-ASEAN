@@ -24,7 +24,7 @@ Elders are hit hardest by phishing and investment scams, often over the phone, a
 
 ## 💡 The idea
 
-Paste or say what just happened. Get a straight answer in easy words, and three steps:
+Agent decodes, scans and block what just happened. Get a straight answer in easy words, and three steps:
 
 > ### ✋ Stop · 🔎 Check · 📣 Report and block
 
@@ -111,7 +111,7 @@ python -m unittest discover -s tests      # 18 tests
 
 ## ⚠️ Honest limits
 
-- **Not a malware analyser.** It never opens links or files. It checks names, types and link patterns only.
+- **Not a fully malware analyzer.** It never opens links or files. It checks names, types and link patterns only.
 - **Rule-based baseline.** It can miss new scams and flag genuine messages. The 16-case sample set is synthetic: a smoke test, not an accuracy claim.
 - **Unverified data.** Hotline numbers and the official-domain list in `data/` must be confirmed before real use.
 - **Wording is a first draft** and needs review by native speakers. **No real-user testing yet.**
