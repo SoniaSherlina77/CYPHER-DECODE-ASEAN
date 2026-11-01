@@ -2,7 +2,7 @@
 
 ![IMG_3491](docs/IMG_3491.PNG)
 
-A prototype built for the Meta AI Global Developer Hackathon 2026.
+A prototype built for the Meta AI Global Developer Hackathon 2026 - Startup Track
 
 **Languages:** Bahasa Malaysia · English · 中文 · Manglish  
 
