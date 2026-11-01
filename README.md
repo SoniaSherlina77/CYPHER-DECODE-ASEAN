@@ -117,6 +117,6 @@ python -m unittest discover -s tests      # 18 tests
 
 ## 📚 More
 
-[README](/README.md) · [Objectives](docs/objectives.md) · [Architecture](docs/architecture.md) · [Ethics and safety](docs/ethics-and-safety.md) · [System prompt](docs/system_instructions.md) · [ASEAN Alignment](docs/asean-alignment.md)
+[Objectives](docs/objectives.md) · [Architecture](docs/architecture.md) · [Ethics and safety](docs/ethics-and-safety.md) · [System prompt](docs/system_instructions.md) · [ASEAN Alignment](docs/asean-alignment.md)
 
 MIT licence. 
