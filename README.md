@@ -103,7 +103,7 @@ Bot:  这看起来是诈骗。
 No installs. Python 3.9+.
 
 ```bash
-git clone https://github.com/<your-username>/scam-helper-asean.git && cd scam-helper-asean
+git clone https://github.com/<SoniaSherlina77>/scam-helper-asean.git && cd scam-helper-asean
 export PYTHONPATH=src        # Windows PowerShell: $env:PYTHONPATH="src"
 
 python -m scamhelper.cli check "Ada orang call kata dari polis, suruh transfer duit ke akaun selamat."
