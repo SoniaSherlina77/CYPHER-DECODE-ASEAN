@@ -2,6 +2,8 @@
 
 ![IMG_3491](docs/IMG_3491.PNG)
 
+A prototype built for the Meta AI Global Developer Hackathon 2026.
+
 **Languages:** Bahasa Malaysia · English · 中文 · Manglish  
 
 **Channels:** chat · voice-style · phone alert
