@@ -40,7 +40,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from scamhelper import triage  # noqa: E402
 from scamhelper.lang import detect_language  # noqa: E402
-from scamhelper.messages import LANGS, REASONS, render  # noqa: E402
+from scamhelper.messages import LANGS, REASONS, render # noqa: E402
 
 VERSION = "0.1.0"
 MAX_BODY = 1_000_000

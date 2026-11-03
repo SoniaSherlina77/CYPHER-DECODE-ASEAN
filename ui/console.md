@@ -41,7 +41,7 @@ The header pills show the last test and evaluation results, whether the WhatsApp
 
 ## URL
 
-The console is a local web app, so its URL is `http://127.0.0.1:<port>/?token=...` on the computer that runs it. A public link needs hosting: either a tunnel to that computer, or a server with HTTPS and a login in front. I have not set either up.
+The console is a local web app, so its URL is `http://127.0.0.1:<port>/?token= ...` on the computer that runs it. A public link needs hosting: either a tunnel to that computer, or a server with HTTPS and a login in front. 
 
 ## Tested
 
