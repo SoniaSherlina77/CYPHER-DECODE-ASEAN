@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scam Helper agent console: start, watch and steer the project from a browser.
+"""CYPHER DECODE agent console: start, watch and steer the project from a browser.
 
     python3 ui/ui.py            # then open the URL it prints
 
@@ -560,7 +560,7 @@ MANUAL_ITEMS = {
 
 def make_handler(console: Console):
     class Handler(BaseHTTPRequestHandler):
-        server_version = "ScamHelperConsole"
+        server_version = "CYPHERDECODEConsole"
 
         def _send(self, code: int, body: bytes, ctype: str) -> None:
             self.send_response(code)
@@ -627,7 +627,7 @@ def make_handler(console: Console):
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Scam Helper agent console")
+    parser = argparse.ArgumentParser(description="CYPHER DECODE agent console")
     parser.add_argument("--host", default="127.0.0.1", help="default 127.0.0.1 (this computer only)")
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--token", default=os.environ.get("CONSOLE_TOKEN"), help="fixed token (default: random each run)")
@@ -640,7 +640,7 @@ def main(argv: list[str] | None = None) -> int:
     server = ThreadingHTTPServer((args.host, args.port), make_handler(console))
     shown_host = "127.0.0.1" if args.host in ("0.0.0.0", "") else args.host
     url = f"http://{shown_host}:{args.port}/?token={token}"
-    print("Scam Helper agent console")
+    print("CYPHER DECODE agent console")
     print(f"  Open this URL: {url}")
     print("  Stop with Ctrl+C. The token changes every run unless you pass --token.")
     if args.host not in ("127.0.0.1", "localhost"):
@@ -662,7 +662,7 @@ INDEX_HTML = r"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Scam Helper Console</title>
+<title>CYPHER DECODE Console</title>
 <style>
 :root{--bg:#f6f7f9;--panel:#fff;--text:#1b1f24;--muted:#5b6571;--border:#d9dee5;--accent:#1f6feb;--accent-ink:#fff;
 --red:#c8281d;--red-bg:#fdecea;--amber:#9a5b00;--amber-bg:#fff3dc;--green:#1a7f37;--green-bg:#e6f6ea;--grey:#57606a;--grey-bg:#eef0f3;--log-bg:#0f1720;--log-text:#d6e2f0;--radius:10px}
@@ -712,7 +712,7 @@ pre#log .e{color:#ff8b82}pre#log .g{color:#6fe58a}pre#log .w{color:#f1c453}
 <body>
 <div id="toast" role="status"></div>
 <header>
-  <div class="brand">🛡️ Scam Helper<small>Agent Console</small></div>
+  <div class="brand">🛡️ CYPHER DECODE<small>Agent Console</small></div>
   <div class="pills" id="pills" aria-live="polite"></div>
 </header>
 <nav role="tablist" id="tabs">

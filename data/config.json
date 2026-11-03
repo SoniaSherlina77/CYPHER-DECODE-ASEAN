@@ -1,0 +1,5 @@
+{
+  "red_threshold": 5,
+  "amber_threshold": 2,
+  "default_country": "MY"
+}

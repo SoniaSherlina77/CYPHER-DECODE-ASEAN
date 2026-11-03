@@ -1,0 +1,6 @@
+{
+  "_note": "Reporting contacts named in the ASEAN Guide (pp.71-72). Phone numbers are NOT stated in the Guide and are marked verified:false. Confirm each against the official government source before any real-user pilot.",
+  "MY": {"name": "National Scam Response Centre (NSRC)", "phone": "997", "verified": false},
+  "SG": {"name": "ScamShield Helpline", "phone": "1799", "verified": false},
+  "TH": {"name": "Anti-Online Scam Operations Centre (AOC)", "phone": "1441", "verified": false}
+}

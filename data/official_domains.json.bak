@@ -1,0 +1,10 @@
+{
+  "_note": "ILLUSTRATIVE ONLY. Maps a brand keyword to its official domains, used to flag lookalike links. Verify every entry against the organisation's own communications before relying on it, and extend per country.",
+  "maybank": ["maybank2u.com.my", "maybank.com"],
+  "cimb": ["cimbclicks.com.my", "cimb.com.my"],
+  "publicbank": ["publicbank.com.my", "pbebank.com"],
+  "rhb": ["rhbgroup.com"],
+  "touchngo": ["touchngo.com.my"],
+  "poslaju": ["pos.com.my"],
+  "lhdn": ["hasil.gov.my"]
+}
