@@ -186,6 +186,69 @@ HOTLINE = {
     "manglish": "Official hotline: {name}, {phone}.",
 }
 
+REASONS["risky_file"] = {
+    "en": "It is a program file, not a normal document or picture. It can harm your phone or computer.",
+    "ms": "Ini fail program, bukan dokumen atau gambar biasa. Ia boleh merosakkan telefon atau komputer anda.",
+    "zh": "这是一个程序文件，不是普通的文档或图片。它可能伤害你的手机或电脑。",
+    "manglish": "This is a program file, not normal document or picture. It can harm your phone or computer.",
+}
+REASONS["double_extension"] = {
+    "en": "The file name pretends to be a document, but it is really a program.",
+    "ms": "Nama fail ini berpura-pura jadi dokumen, tetapi sebenarnya program.",
+    "zh": "这个文件名假装是文档，其实是个程序。",
+    "manglish": "The file name pretend to be a document, but actually it is a program.",
+}
+
+EMERGENCY = {
+    "en": (
+        "Thank you for telling me. This can happen to anyone. Let us act fast.\n"
+        "1. Call your bank now. Use the number on the back of your card. Ask them to stop or freeze the transfer.\n"
+        "2. Then call the official scam hotline.\n"
+        "3. If you installed an unknown app, or someone controlled your phone, turn on aeroplane mode and do not type any password. Take the phone to your bank or telco counter.\n"
+        "4. Later, change your passwords from a safe phone and make a police report.\n"
+        "The sooner you call the bank, the better the chance to stop the money."
+    ),
+    "ms": (
+        "Terima kasih kerana beritahu saya. Ini boleh berlaku pada sesiapa sahaja. Mari kita bertindak cepat.\n"
+        "1. Telefon bank anda sekarang. Guna nombor di belakang kad. Minta mereka hentikan atau bekukan pemindahan itu.\n"
+        "2. Kemudian telefon talian hotline penipuan rasmi.\n"
+        "3. Jika anda pasang aplikasi yang tidak dikenali, atau ada orang kawal telefon anda, buka mod kapal terbang dan jangan taip sebarang kata laluan. Bawa telefon ke kaunter bank atau telco anda.\n"
+        "4. Kemudian, tukar kata laluan dari telefon yang selamat dan buat laporan polis.\n"
+        "Semakin cepat anda telefon bank, semakin besar peluang untuk menghentikan wang itu."
+    ),
+    "zh": (
+        "谢谢你告诉我。这种事谁都可能遇到。我们要赶快行动。\n"
+        "1. 马上打电话给银行。用银行卡背面的号码。请他们停止或冻结这笔转账。\n"
+        "2. 然后打给官方的防骗热线。\n"
+        "3. 如果你装了不明应用，或者有人控制了你的手机，请开启飞行模式，不要输入任何密码，把手机带到银行或电信公司柜台。\n"
+        "4. 之后用安全的手机更改密码，并去报警。\n"
+        "越早打给银行，越有机会拦住这笔钱。"
+    ),
+    "manglish": (
+        "Thanks for telling me. This can happen to anyone one. Let's act fast.\n"
+        "1. Call your bank now. Use the number at the back of your card. Ask them stop or freeze the transfer.\n"
+        "2. Then call the official scam hotline.\n"
+        "3. If you installed some strange app, or somebody control your phone, switch on aeroplane mode and don't type any password. Bring the phone to the bank or telco counter.\n"
+        "4. After that, change your passwords from a safe phone and make a police report.\n"
+        "The faster you call the bank, the better the chance to stop the money."
+    ),
+}
+
+WELCOME = (
+    "Hello! I am Scam Helper. Send me a message, number, link or file name that you are not sure about, "
+    "and I will tell you if it looks like a scam.\n"
+    "Hai! Saya Scam Helper. Hantar mesej, nombor, pautan atau nama fail yang anda ragu-ragu, "
+    "dan saya akan beritahu sama ada ia nampak seperti penipuan.\n"
+    "你好！我是 Scam Helper。把你不确定的消息、号码、链接或文件名发给我，我会告诉你它看起来像不像诈骗。\n"
+    "Never share your OTP, PIN or password with anyone, including me."
+)
+
+UNSUPPORTED = (
+    "I cannot read voice notes or pictures yet. Please type the message, number or link.\n"
+    "Saya belum boleh baca nota suara atau gambar. Sila taip mesej, nombor atau pautan itu.\n"
+    "我暂时还看不了语音和图片。请把消息、号码或链接打字发给我。"
+)
+
 MAX_REASONS = 2
 
 

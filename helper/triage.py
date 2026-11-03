@@ -89,7 +89,8 @@ LEET = str.maketrans("0135", "oles")
 
 # Order used when choosing which reasons to show first.
 CODE_PRIORITY = [
-    "blocklist", "safe_account", "otp_request", "lookalike", "apk", "authority", "money_transfer",
+    "blocklist", "safe_account", "otp_request", "lookalike", "apk", "double_extension", "risky_file",
+    "authority", "money_transfer",
     "investment", "prize", "punycode", "ip_link", "shortener", "odd_tld", "job", "urgency",
     "parcel", "link",
 ]
@@ -152,11 +153,29 @@ def _host(url: str) -> str:
     return (parsed.hostname or "").lower()
 
 
+DEFAULT_CONFIG = {"red_threshold": 5, "amber_threshold": 2, "default_country": "MY"}
+
+
+def load_config(path: Path | None = None) -> dict:
+    """Thresholds and defaults from data/config.json, falling back to safe defaults."""
+    cfg = dict(DEFAULT_CONFIG)
+    path = path or data_dir() / "config.json"
+    try:
+        cfg.update(json.loads(path.read_text(encoding="utf-8")))
+        cfg["red_threshold"] = int(cfg["red_threshold"])
+        cfg["amber_threshold"] = int(cfg["amber_threshold"])
+    except (OSError, ValueError, TypeError):
+        return dict(DEFAULT_CONFIG)
+    return cfg
+
+
 def analyse(
     text: str,
     blocklist: Blocklist | None = None,
     official: dict[str, list[str]] | None = None,
+    thresholds: tuple[int, int] | None = None,
 ) -> Result:
+    """Score a message. `thresholds` is (red, amber); default comes from data/config.json."""
     if len(re.sub(r"\s", "", text or "")) < 3:
         return Result(UNSURE)
     blocklist = blocklist if blocklist is not None else Blocklist.load()
@@ -199,5 +218,9 @@ def analyse(
         score += 10
 
     codes = sorted(weights, key=lambda c: CODE_PRIORITY.index(c) if c in CODE_PRIORITY else 99)
-    label = RED if score >= 5 else AMBER if score >= 2 else GREENISH
+    if thresholds is None:
+        cfg = load_config()
+        thresholds = (cfg["red_threshold"], cfg["amber_threshold"])
+    red_at, amber_at = thresholds
+    label = RED if score >= red_at else AMBER if score >= amber_at else GREENISH
     return Result(label=label, score=score, codes=codes, confirmed=confirmed, hosts=hosts)
