@@ -11,3 +11,4 @@ venv/
 # Never commit real victim data or real message exports
 data/private/
 *.private.jsonl
+.env

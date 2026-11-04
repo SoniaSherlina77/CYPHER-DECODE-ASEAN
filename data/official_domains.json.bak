@@ -1,0 +1,11 @@
+{
+  "_note": "Brand eyword to official domains, used to flag lookalike links. Checked against organisation/regulator sources 2026-11-03;extend per country.",
+  "_verified": false,
+  "maybank": ["maybank2u.com.my", "maybank.com"],
+  "cimb": ["cimbclicks.com.my", "cimb.com.my"],
+  "publicbank": ["publicbank.com.my", "pbebank.com", "publicbankgroup.com"],
+  "rhb": ["rhbgroup.com"],
+  "touchngo": ["touchngo.com.my", "tngdigital.com.my"],
+  "poslaju": ["pos.com.my"],
+  "lhdn": ["hasil.gov.my"]
+}
