@@ -1,0 +1,11 @@
+# .env is copied and filled in for local use. No real values.
+# From Meta developer app (WhatsApp Business Platform):
+WHATSAPP_VERIFY_TOKEN=cypher-decode-local-test-2026
+WHATSAPP_APP_SECRET=e21884b874c372e460c1787afa3728b9
+WHATSAPP_ACCESS_TOKEN=EAAVD2bZAjCeoBSZBR2UaNHPQHaZBmO5ZBUjd54t7meQQhKjYApBm05Lb1gGiqIceC4NzZBACEhmFWtuy6YvlvHoqXZBvq6aZCAjDhT7vNaZBm2WYKvpecYxbZBpxWB6gK0MGKr1yngHOdYZBVVMiLLdY7EP8ZBQrwzHkL2ZB93SMYC9Kcq3TpviQFryhfGpdfZCmZAiFcaCOQWSUw4raQRzgSrANi8qxZAHfiZBeWm7CvqjIMCRZATBo4hXzFpcFsvuZBRqsL2hHUnvmx41weJuL0MoXRMqj5R
+WHATSAPP_PHONE_NUMBER_ID=1418620218000111
+# Optional:
+WHATSAPP_API_VERSION=v21.0
+SCAMHELPER_COUNTRY=MY
+PORT=8080
+# Local testing only (skips signature checks). Leave unset in any real deployment:
