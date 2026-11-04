@@ -1,0 +1,4 @@
+﻿cases: 16 (10 scam, 6 benign)
+scam recall:      100%   missed: none
+false-alarm rate: 0%   wrongly flagged: none
+Note: tiny synthetic set. Smoke test only, not a performance claim.

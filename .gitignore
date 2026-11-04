@@ -12,3 +12,4 @@ venv/
 data/private/
 *.private.jsonl
 .env
+data/samples/reviewed.jsonl

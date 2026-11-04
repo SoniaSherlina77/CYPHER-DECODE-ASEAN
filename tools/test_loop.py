@@ -7,9 +7,11 @@ Run: PYTHONPATH=src python -m unittest discover -s tools
 import copy
 import importlib.util
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 REPO = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location("agent_loop", REPO / "loop" / "loop.py")
@@ -61,7 +63,21 @@ class LayoutTests(unittest.TestCase):
         filled = loop.fill_placeholders(loop.read_text(loop.SYSTEM_PATH), ctx)
         for key in ctx:
             self.assertNotIn("{{" + key + "}}", filled)
-        self.assertIn("[unverified]", filled)  # draft data stays marked
+        # MY is verified in data/contacts.json (2026-11-03), so no marker here.
+        self.assertNotIn("[unverified]", ctx["hotline"])
+        self.assertIn("997", ctx["hotline"])
+
+    def test_unverified_hotline_stays_marked(self):
+        fake = {"XX": {"name": "Test Centre", "phone": "123", "verified": False}}
+        with mock.patch.object(loop, "_read_json", return_value=fake):
+            ctx = loop.load_runtime_context("XX")
+        self.assertIn("[unverified]", ctx["hotline"])
+        filled = loop.fill_placeholders("hotline: {{hotline}}", ctx)
+        self.assertIn("[unverified]", filled)
+
+    def test_unknown_country_has_no_verified_hotline(self):
+        ctx = loop.load_runtime_context("ZZ")
+        self.assertIn("No verified hotline", ctx["hotline"])
 
     def test_build_tools_match_specs(self):
         tools = loop.build_tools()
@@ -72,6 +88,43 @@ class LayoutTests(unittest.TestCase):
         self.assertEqual(set(tools), set(loop.TOOL_SPECS))
         result = json.loads(tools["match_scam_pattern"]({"text": SCAM_TEXT}))
         self.assertEqual(result["label"], "RED")
+
+    def test_turn_budgets_share_one_default(self):
+        import inspect
+
+        self.assertEqual(
+            inspect.signature(loop.run_loop_with_trace).parameters["max_turns"].default,
+            loop.MAX_TURNS_DEFAULT,
+        )
+        self.assertEqual(
+            inspect.signature(loop.run_loop).parameters["max_turns"].default,
+            loop.MAX_TURNS_DEFAULT,
+        )
+        self.assertEqual(
+            inspect.signature(loop.run_agent).parameters["max_turns"].default,
+            loop.MAX_TURNS_DEFAULT,
+        )
+
+
+class EnvTests(unittest.TestCase):
+    def test_dotenv_loads_without_overriding(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            env_path = Path(tmp) / ".env"
+            env_path.write_text(
+                "# comment\nSCAMHELPER_TEST_LOOP_A=fromfile\n"
+                "SCAMHELPER_TEST_LOOP_B='quoted value'\n"
+                "NOT A KEY=oops\n",
+                encoding="utf-8",
+            )
+            with mock.patch.dict(os.environ, {"SCAMHELPER_TEST_LOOP_A": "existing"}, clear=False):
+                loaded = loop._load_dotenv(env_path)
+                self.assertEqual(os.environ["SCAMHELPER_TEST_LOOP_A"], "existing")
+                self.assertEqual(os.environ["SCAMHELPER_TEST_LOOP_B"], "quoted value")
+                self.assertNotIn("NOT A KEY", os.environ)
+                self.assertEqual(loaded, 1)
+
+    def test_dotenv_missing_file_loads_zero(self):
+        self.assertEqual(loop._load_dotenv(Path(tempfile.mkdtemp()) / "nope.env"), 0)
 
 
 class TurnTests(unittest.TestCase):
@@ -172,6 +225,18 @@ class CheckTests(unittest.TestCase):
         text, corrections = loop.apply_guardrails("This is 100% a scam.", confirmed=True)
         self.assertIn("100%", text)
         self.assertFalse(corrections)
+
+    def test_check_reports_turns_used(self):
+        self.assertEqual(loop.check(SCAM_TEXT)["turns_used"], 0)
+        result = loop.check(SCAM_TEXT, complete=scripted(final_answer(FINAL_RED)))
+        self.assertEqual(result["turns_used"], 1)
+        self.assertEqual(result["stop_reason"], "final")
+        looping = loop.check(
+            SCAM_TEXT,
+            complete=scripted(tool_call("match_scam_pattern", {"text": SCAM_TEXT})),
+            max_turns=2,
+        )
+        self.assertEqual(looping["turns_used"], 2)
 
 
 class MemoTests(unittest.TestCase):

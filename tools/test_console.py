@@ -23,6 +23,7 @@ class ConsoleTestCase(unittest.TestCase):
         self.addCleanup(shutil.rmtree, self.tmp, True)
         self.data = self.tmp / "data"
         shutil.copytree(REPO / "data", self.data)
+        (self.data / "samples" / "reviewed.jsonl").unlink(missing_ok=True)  #new: tests start with no review set
         self.c = ui.Console(self.tmp, self.data, "tok")
         self.addCleanup(self.c.shutdown)
 
@@ -135,24 +136,25 @@ class JobTests(ConsoleTestCase):
         self.assertEqual(self.wait_job(job["id"])["status"], "stopped")
 
     def test_evaluate_result_is_parsed_into_readiness(self):
-        (self.tmp / "scripts").mkdir()
-        shutil.copy(REPO / "scripts" / "evaluate.py", self.tmp / "scripts" / "evaluate.py")
+        (self.tmp / "tools").mkdir()
+        shutil.copy(REPO / "tools" / "evaluate.py", self.tmp / "tools" / "evaluate.py")
         shutil.copytree(REPO / "src", self.tmp / "src")
-        self.c.catalog["evaluate"]["cmd"] = [sys.executable, "scripts/evaluate.py", str(self.data / "samples" / "test_cases.jsonl")]
+        self.c.catalog["evaluate"]["cmd"] = [sys.executable, "tools/evaluate.py", str(self.data / "samples" / "test_cases.jsonl")]
         code, job = self.call("POST", "/api/jobs", {"name": "evaluate"})
         self.wait_job(job["id"])
         time.sleep(0.2)
         item = next(i for i in self.c.readiness() if i["key"] == "evaluation")
-        self.assertTrue(item["ok"], item)
+        self.assertTrue(item["ok"], item) 
 
     def test_readiness_reflects_unverified_data_and_manual_items(self):
+        (self.data / "contacts.json").write_text(json.dumps(
+             {"MY": {"name": "Test line", "phone": "000", "verified": False}}), encoding="utf-8")                                    
         ready = {i["key"]: i for i in self.c.readiness()}
         self.assertFalse(ready["hotlines"]["ok"])
         self.assertFalse(ready["native_review"]["ok"])
         self.call("POST", "/api/manual", {"key": "native_review", "value": True})
         self.assertTrue({i["key"]: i for i in self.c.readiness()}["native_review"]["ok"])
         self.assertEqual(self.call("POST", "/api/manual", {"key": "bogus", "value": True})[0], 404)
-
 
 class HttpTests(ConsoleTestCase):
     def setUp(self):
@@ -178,7 +180,7 @@ class HttpTests(ConsoleTestCase):
     def test_page_is_served_without_token_and_has_security_headers(self):
         status, body, headers = self.req("/")
         self.assertEqual(status, 200)
-        self.assertIn(b"Scam Helper", body)
+        self.assertIn(b"CYPHER DECODE", body)
         self.assertIn("frame-ancestors 'none'", headers["Content-Security-Policy"])
 
     def test_api_requires_the_token(self):

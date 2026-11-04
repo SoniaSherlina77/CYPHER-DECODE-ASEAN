@@ -2,3 +2,4 @@
 {"id": "review-0002", "lang": "ms", "label": "scam", "text": "Ada orang dari polis, suruh hantar wang ke akaun selamat.", "note": "", "predicted": "RED", "added": "2026-11-03T06:50:07+00:00"}
 {"id": "review-0003", "lang": "manglish", "label": "scam", "text": "ada orang minta IC and no bank account daripada polis", "note": "", "predicted": "AMBER", "added": "2026-11-03T07:06:04+00:00"}
 {"id": "review-0004", "lang": "ms", "label": "scam", "text": "Ada orang call kata dari polis, suruh hantar wang ke akaun bank.", "note": "", "predicted": "AMBER", "added": "2026-11-03T15:02:44+00:00"}
+{"id": "review-0005", "lang": "ms", "label": "scam", "text": "Ada call daripada polis guna WhatsApp minta wang untuk hantar ke bank akaun.", "note": "Clean review", "predicted": "AMBER", "added": "2026-11-04T08:59:40+00:00"}

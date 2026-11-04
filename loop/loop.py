@@ -3,10 +3,14 @@
 The model chooses every tool call; the loop only provides structure:
 
 1. data/ parameters fill the system prompt's {{placeholders}} first;
-2. the tool layer from src/scamhelper executes the model's calls second;
-3. app integration (CLI, WhatsApp, console) enters through check() last.
+2. tools/privacy redaction runs before the model sees text; tool specs follow
+   src/scamhelper second;
+3. the tool layer from src/scamhelper executes the model's calls third;
+4. app integration (CLI, WhatsApp, console) enters through check() last.
 
 Every run_agent() call files a memo with its findings in this folder.
+Runtime config comes from the environment, with ROOT/.env loaded first and
+ui/.env as fallback (never logged, never sent to the model).
 """
 
 from __future__ import annotations
@@ -28,6 +32,8 @@ SYSTEM_PATH = ROOT / "docs" / "system_instructions.md"
 OBJECTIVE_PATH = ROOT / "docs" / "objectives.md"
 DATA_DIR = ROOT / "data"
 MEMO_PATH = BASE_DIR / "memo.md"
+ENV_PATH = ROOT / ".env"
+UI_ENV_PATH = ROOT / "ui" / ".env"
 
 MAX_TURNS_DEFAULT = 6
 MAX_CALLS_PER_TURN = 4
@@ -36,6 +42,42 @@ REPEAT_LIMIT = 2  # stop before executing the 3rd identical call
 STOP_FINAL = "final"
 STOP_MAX_TURNS = "max_turns"
 STOP_REPEAT = "repeat_calls"
+
+
+def _load_dotenv(path: str | Path) -> int:
+    """Load KEY=VALUE lines into os.environ without overriding existing vars.
+
+    Minimal parser: skips blanks and '#' comments, strips matching single or
+    double quotes. Returns the number of keys set. Never prints values.
+    """
+    loaded = 0
+    try:
+        lines = Path(path).read_text(encoding="utf-8").splitlines()
+    except OSError:
+        return 0
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#") or "=" not in stripped:
+            continue
+        key, _, value = stripped.partition("=")
+        key = key.strip()
+        value = value.strip()
+        if not key or not key.replace("_", "").isalnum():
+            continue
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in ("'", '"'):
+            value = value[1:-1]
+        if key not in os.environ:
+            os.environ[key] = value
+            loaded += 1
+    return loaded
+
+
+def ensure_env_loaded() -> int:
+    """Load ROOT/.env first, then ui/.env as fallback for missing keys."""
+    return _load_dotenv(ENV_PATH) + _load_dotenv(UI_ENV_PATH)
+
+
+ensure_env_loaded()
 
 
 def _ensure_src_on_path() -> None:
@@ -349,7 +391,7 @@ def run_loop_with_trace(
     objective: str,
     complete: Complete,
     tools: Mapping[str, Tool],
-    max_turns: int = 10,
+    max_turns: int = MAX_TURNS_DEFAULT,
 ) -> tuple[str, LoopTrace]:
     """Repeat turns until the model answers without tool calls or the loop stops.
 
@@ -400,7 +442,7 @@ def run_loop(
     objective: str,
     complete: Complete,
     tools: Mapping[str, Tool],
-    max_turns: int = 10,
+    max_turns: int = MAX_TURNS_DEFAULT,
 ) -> str:
     """Repeat turns until the model answers without tool calls or turns run out."""
     findings, _ = run_loop_with_trace(system, objective, complete, tools, max_turns)
@@ -509,6 +551,7 @@ def check(
         "lang": use_lang, "intent": intent, "country": code, "redacted": counts,
         "label": None, "codes": [], "confirmed": False,
         "disagreement": None, "corrections": [], "tool_summaries": [],
+        "turns_used": 0,
     }
     if not _HAVE_HELPERS:
         return {
@@ -552,6 +595,7 @@ def check(
             "disagreement": trace.disagreement,
             "corrections": trace.corrections,
             "tool_summaries": trace.tool_summaries,
+            "turns_used": trace.turns_used,
         }
     reply, disagreement, _ = enforce_safety_net(clean, findings, use_lang, contact, voice)
     trace.disagreement = disagreement
@@ -566,6 +610,7 @@ def check(
         "disagreement": disagreement,
         "corrections": trace.corrections,
         "tool_summaries": trace.tool_summaries,
+        "turns_used": trace.turns_used,
     }
 
 
@@ -599,7 +644,7 @@ def run_agent(
     objective: str,
     complete: Complete,
     tools: Mapping[str, Tool],
-    max_turns: int = 10,
+    max_turns: int = MAX_TURNS_DEFAULT,
     memo_path: str | Path = MEMO_PATH,
 ) -> tuple[str, str]:
     """Run the loop, then always file a memo with the findings."""
@@ -702,7 +747,8 @@ def complete(
     """One Meta model call with tool specs. Returns {"content", "tool_calls"}.
 
     Configured by META_API_KEY (required), META_API_BASE, META_MODEL and
-    LLM_TIMEOUT_S (default 60).
+    LLM_TIMEOUT_S (default 60). Values may come from ROOT/.env (copy of
+    ui/.env) via ensure_env_loaded(); the key itself is never logged.
     """
     try:
         import httpx
@@ -731,6 +777,7 @@ def complete(
 def _trace_from_result(result: Mapping[str, Any]) -> LoopTrace:
     return LoopTrace(
         stop_reason=str(result.get("stop_reason", STOP_FINAL)),
+        turns_used=int(result.get("turns_used", 0) or 0),
         baseline_label=result.get("label"),
         confirmed_scam_seen=bool(result.get("confirmed")),
         disagreement=result.get("disagreement"),
@@ -741,6 +788,7 @@ def _trace_from_result(result: Mapping[str, Any]) -> LoopTrace:
 
 def main(argv: list[str] | None = None) -> int:
     """Check one report from argv (or stdin), print the reply, file the memo."""
+    ensure_env_loaded()
     parser = argparse.ArgumentParser(
         prog="loop", description="Check one scam report and file a memo in loop/."
     )

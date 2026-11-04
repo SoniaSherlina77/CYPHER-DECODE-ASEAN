@@ -52,17 +52,17 @@ CATALOG = {
     "tests": {
         "label": "Run tests",
         "desc": "Runs the unit tests. They should all pass.",
-        "cmd": [PY, "-m", "unittest", "discover", "-s", "tests", "-v"],
+        "cmd": [PY, "-m", "unittest", "discover", "-s", "tools", "-v"],
     },
     "evaluate": {
         "label": "Evaluate samples",
         "desc": "Scores the synthetic sample cases: scam recall and false alarms. A smoke test, not an accuracy claim.",
-        "cmd": [PY, "scripts/evaluate.py"],
+        "cmd": [PY, "tools/evaluate.py"],
     },
     "evaluate_reviewed": {
         "label": "Evaluate samples + review set",
         "desc": "Scores the samples plus the cases you labelled in this console.",
-        "cmd": [PY, "scripts/evaluate.py", "data/samples/test_cases.jsonl", "data/samples/reviewed.jsonl"],
+        "cmd": [PY, "tools/evaluate.py", "data/samples/test_cases.jsonl", "data/samples/reviewed.jsonl"],
     },
     "whatsapp": {
         "label": "WhatsApp bot",

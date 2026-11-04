@@ -1,0 +1,203 @@
+﻿python.exe : test_blocklist_edit_takes_effect (test_console.CheckAndSteerTests.test_blocklist_edit_takes_effect) ... ok
+At line:1 char:24
++ ... PATH="src"; & "$env:LOCALAPPDATA\Programs\Python\Python315\python.exe ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_blocklist_..._effect) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_check_returns_verdict_reply_and_reasons 
+(test_console.CheckAndSteerTests.test_check_returns_verdict_reply_and_reasons) ... ok
+test_data_file_validation_and_backup (test_console.CheckAndSteerTests.test_data_file_validation_and_backup) ... ok
+test_saved_thresholds_change_verdicts (test_console.CheckAndSteerTests.test_saved_thresholds_change_verdicts) ... ok
+test_simulate_does_not_save (test_console.CheckAndSteerTests.test_simulate_does_not_save) ... ok
+test_threshold_validation (test_console.CheckAndSteerTests.test_threshold_validation) ... ok
+test_api_requires_the_token (test_console.HttpTests.test_api_requires_the_token) ... ERROR
+test_check_over_http_and_bad_json (test_console.HttpTests.test_check_over_http_and_bad_json) ... ERROR
+test_page_is_served_without_token_and_has_security_headers 
+(test_console.HttpTests.test_page_is_served_without_token_and_has_security_headers) ... ERROR
+test_evaluate_result_is_parsed_into_readiness (test_console.JobTests.test_evaluate_result_is_parsed_into_readiness) 
+... ERROR
+test_job_runs_and_streams_lines (test_console.JobTests.test_job_runs_and_streams_lines) ... ok
+test_readiness_reflects_unverified_data_and_manual_items 
+(test_console.JobTests.test_readiness_reflects_unverified_data_and_manual_items) ... FAIL
+test_stop_and_no_double_start (test_console.JobTests.test_stop_and_no_double_start) ... ok
+test_unknown_job_and_missing_env (test_console.JobTests.test_unknown_job_and_missing_env) ... ok
+test_audit_never_contains_message_text (test_console.ReviewTests.test_audit_never_contains_message_text) ... ok
+test_review_roundtrip_and_disagreements (test_console.ReviewTests.test_review_roundtrip_and_disagreements) ... FAIL
+test_review_validation (test_console.ReviewTests.test_review_validation) ... ok
+test_chinese (test_lang.LanguageTests.test_chinese) ... ok
+test_english (test_lang.LanguageTests.test_english) ... ok
+test_malay (test_lang.LanguageTests.test_malay) ... ok
+test_manglish_mixed_malay_english (test_lang.LanguageTests.test_manglish_mixed_malay_english) ... ok
+test_manglish_particles (test_lang.LanguageTests.test_manglish_particles) ... ok
+test_cautious_model_answer_is_kept (test_loop.CheckTests.test_cautious_model_answer_is_kept) ... ok
+test_check_reports_turns_used (test_loop.CheckTests.test_check_reports_turns_used) ... ok
+test_emergency_short_circuits_without_model (test_loop.CheckTests.test_emergency_short_circuits_without_model) ... ok
+test_guardrails (test_loop.CheckTests.test_guardrails) ... ok
+test_offline_baseline_red (test_loop.CheckTests.test_offline_baseline_red) ... ok
+test_otp_is_redacted_before_model (test_loop.CheckTests.test_otp_is_redacted_before_model) ... ok
+test_safety_net_overrules_uncautious_model (test_loop.CheckTests.test_safety_net_overrules_uncautious_model) ... ok
+test_dotenv_loads_without_overriding (test_loop.EnvTests.test_dotenv_loads_without_overriding) ... ok
+test_dotenv_missing_file_loads_zero (test_loop.EnvTests.test_dotenv_missing_file_loads_zero) ... ok
+test_build_tools_match_specs (test_loop.LayoutTests.test_build_tools_match_specs) ... ok
+test_paths_point_at_repo_layout (test_loop.LayoutTests.test_paths_point_at_repo_layout) ... ok
+test_placeholders_all_filled_from_data (test_loop.LayoutTests.test_placeholders_all_filled_from_data) ... ok
+test_turn_budgets_share_one_default (test_loop.LayoutTests.test_turn_budgets_share_one_default) ... ok
+test_unknown_country_has_no_verified_hotline (test_loop.LayoutTests.test_unknown_country_has_no_verified_hotline) ... 
+ok
+test_unverified_hotline_stays_marked (test_loop.LayoutTests.test_unverified_hotline_stays_marked) ... ok
+test_run_agent_files_memo (test_loop.MemoTests.test_run_agent_files_memo) ... ok
+test_max_turns_stop (test_loop.StopTests.test_max_turns_stop) ... ok
+test_repeat_calls_stop (test_loop.StopTests.test_repeat_calls_stop) ... ok
+test_final_answer_ends_turn (test_loop.TurnTests.test_final_answer_ends_turn) ... ok
+test_tool_then_final (test_loop.TurnTests.test_tool_then_final) ... ok
+test_unknown_tool_is_reported_not_raised (test_loop.TurnTests.test_unknown_tool_is_reported_not_raised) ... ok
+test_apk_is_high (test_tools.FileNameTests.test_apk_is_high) ... ok
+test_double_extension_is_high (test_tools.FileNameTests.test_double_extension_is_high) ... ok
+test_exe_is_medium (test_tools.FileNameTests.test_exe_is_medium) ... ok
+test_pdf_is_low_and_notes_limits (test_tools.FileNameTests.test_pdf_is_low_and_notes_limits) ... ok
+test_check_not_emergency (test_tools.IntentTests.test_check_not_emergency) ... ok
+test_emergency (test_tools.IntentTests.test_emergency) ... ok
+test_greeting (test_tools.IntentTests.test_greeting) ... ok
+test_call_tool_dispatch_and_errors (test_tools.OtherToolTests.test_call_tool_dispatch_and_errors) ... ok
+test_notify_trusted_contact_is_disabled (test_tools.OtherToolTests.test_notify_trusted_contact_is_disabled) ... ok
+test_number_not_listed_is_never_called_safe (test_tools.OtherToolTests.test_number_not_listed_is_never_called_safe) 
+... ok
+test_reporting_channel (test_tools.OtherToolTests.test_reporting_channel) ... ok
+test_schemas_cover_callable_tools (test_tools.OtherToolTests.test_schemas_cover_callable_tools) ... ok
+test_short_number_is_unsure (test_tools.OtherToolTests.test_short_number_is_unsure) ... ok
+test_url_lookalike_without_scheme (test_tools.OtherToolTests.test_url_lookalike_without_scheme) ... ok
+test_all_languages_render_red (test_triage.RenderTests.test_all_languages_render_red) ... ok
+test_voice_mode_has_no_numbering_or_newlines (test_triage.RenderTests.test_voice_mode_has_no_numbering_or_newlines) 
+... ok
+test_sample_cases (test_triage.SampleSetTests.test_sample_cases) ... ok
+test_apk_flagged (test_triage.TriageTests.test_apk_flagged) ... ok
+test_blocklist_number_is_confirmed (test_triage.TriageTests.test_blocklist_number_is_confirmed) ... ok
+test_empty_is_unsure (test_triage.TriageTests.test_empty_is_unsure) ... ok
+test_greenish_never_says_safe (test_triage.TriageTests.test_greenish_never_says_safe) ... ok
+test_lookalike_domain (test_triage.TriageTests.test_lookalike_domain) ... ok
+test_no_confirmed_flag_without_blocklist_hit (test_triage.TriageTests.test_no_confirmed_flag_without_blocklist_hit) 
+... ok
+test_official_domain_not_lookalike (test_triage.TriageTests.test_official_domain_not_lookalike) ... ok
+test_otp_request_flagged_but_real_otp_notice_not 
+(test_triage.TriageTests.test_otp_request_flagged_but_real_otp_notice_not) ... ok
+test_pinjam_does_not_trigger_pin (test_triage.TriageTests.test_pinjam_does_not_trigger_pin) ... ok
+test_safe_account_is_red (test_triage.TriageTests.test_safe_account_is_red) ... ok
+test_duplicate_delivery_is_ignored (test_whatsapp.BotTests.test_duplicate_delivery_is_ignored) ... ok
+test_injection_text_cannot_change_the_reply (test_whatsapp.BotTests.test_injection_text_cannot_change_the_reply) ... ok
+test_language_memory_used_for_followup_file (test_whatsapp.BotTests.test_language_memory_used_for_followup_file) ... ok
+test_reply_sent_to_sender_via_graph_api (test_whatsapp.BotTests.test_reply_sent_to_sender_via_graph_api) ... ok
+test_send_failure_does_not_crash (test_whatsapp.BotTests.test_send_failure_does_not_crash) ... ok
+test_user_message_is_never_echoed (test_whatsapp.BotTests.test_user_message_is_never_echoed) ... ok
+test_extract_text_and_document (test_whatsapp.ParsingTests.test_extract_text_and_document) ... ok
+test_garbage_payload_does_not_crash (test_whatsapp.ParsingTests.test_garbage_payload_does_not_crash) ... ok
+test_status_updates_are_ignored (test_whatsapp.ParsingTests.test_status_updates_are_ignored) ... ok
+test_audio_is_unsupported (test_whatsapp.ReplyTests.test_audio_is_unsupported) ... ok
+test_greeting_and_emergency (test_whatsapp.ReplyTests.test_greeting_and_emergency) ... ok
+test_risky_document (test_whatsapp.ReplyTests.test_risky_document) ... ok
+test_safe_looking_document_is_not_called_safe (test_whatsapp.ReplyTests.test_safe_looking_document_is_not_called_safe) 
+... ok
+test_scam_text_gets_red_reply_with_hotline (test_whatsapp.ReplyTests.test_scam_text_gets_red_reply_with_hotline) ... ok
+test_challenge (test_whatsapp.SecurityTests.test_challenge) ... ok
+test_signature_valid_and_invalid (test_whatsapp.SecurityTests.test_signature_valid_and_invalid) ... ok
+
+======================================================================
+ERROR: test_api_requires_the_token (test_console.HttpTests.test_api_requires_the_token)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\CDA\CYPHER-DECODE-ASEAN\tools\test_console.py", line 160, in setUp
+    self.server = ThreadingHTTPServer(("127.0.0.1", 0), ui.make_handler(self.c))
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python315\Lib\socketserver.py", line 455, in __init__
+    self.server_activate()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python315\Lib\socketserver.py", line 484, in server_activate
+    self.socket.listen(self.request_queue_size)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions
+
+======================================================================
+ERROR: test_check_over_http_and_bad_json (test_console.HttpTests.test_check_over_http_and_bad_json)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\CDA\CYPHER-DECODE-ASEAN\tools\test_console.py", line 160, in setUp
+    self.server = ThreadingHTTPServer(("127.0.0.1", 0), ui.make_handler(self.c))
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python315\Lib\socketserver.py", line 455, in __init__
+    self.server_activate()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python315\Lib\socketserver.py", line 484, in server_activate
+    self.socket.listen(self.request_queue_size)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions
+
+======================================================================
+ERROR: test_page_is_served_without_token_and_has_security_headers 
+(test_console.HttpTests.test_page_is_served_without_token_and_has_security_headers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\CDA\CYPHER-DECODE-ASEAN\tools\test_console.py", line 160, in setUp
+    self.server = ThreadingHTTPServer(("127.0.0.1", 0), ui.make_handler(self.c))
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python315\Lib\socketserver.py", line 455, in __init__
+    self.server_activate()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python315\Lib\socketserver.py", line 484, in server_activate
+    self.socket.listen(self.request_queue_size)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions
+
+======================================================================
+ERROR: test_evaluate_result_is_parsed_into_readiness 
+(test_console.JobTests.test_evaluate_result_is_parsed_into_readiness)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\CDA\CYPHER-DECODE-ASEAN\tools\test_console.py", line 139, in 
+test_evaluate_result_is_parsed_into_readiness
+    shutil.copy(REPO / "scripts" / "evaluate.py", self.tmp / "scripts" / "evaluate.py")
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python315\Lib\shutil.py", line 489, in copy
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python315\Lib\shutil.py", line 313, in copyfile
+    with open(src, 'rb') as fsrc:
+         ~~~~^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 
+'C:\\Users\\USER\\Desktop\\CDA\\CYPHER-DECODE-ASEAN\\scripts\\evaluate.py'
+
+======================================================================
+FAIL: test_readiness_reflects_unverified_data_and_manual_items 
+(test_console.JobTests.test_readiness_reflects_unverified_data_and_manual_items)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\CDA\CYPHER-DECODE-ASEAN\tools\test_console.py", line 150, in 
+test_readiness_reflects_unverified_data_and_manual_items
+    self.assertFalse(ready["hotlines"]["ok"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_review_roundtrip_and_disagreements (test_console.ReviewTests.test_review_roundtrip_and_disagreements)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\CDA\CYPHER-DECODE-ASEAN\tools\test_console.py", line 92, in 
+test_review_roundtrip_and_disagreements
+    self.assertEqual((code, r["id"]), (200, "review-0001"))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (200, 'review-0006') != (200, 'review-0001')
+
+First differing element 1:
+'review-0006'
+'review-0001'
+
+- (200, 'review-0006')
+?                  ^
+
++ (200, 'review-0001')
+?                  ^
+
+
+----------------------------------------------------------------------
+Ran 86 tests in 36.657s
+
+FAILED (failures=2, errors=4)

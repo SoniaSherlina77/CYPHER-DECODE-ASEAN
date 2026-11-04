@@ -1,0 +1,35 @@
+﻿python.exe : test_cautious_model_answer_is_kept (tools.test_loop.CheckTests.test_cautious_model_answer_is_kept) ... ok
+At line:1 char:24
++ ... PATH="src"; & "$env:LOCALAPPDATA\Programs\Python\Python315\python.exe ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_cautious_m...is_kept) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_check_reports_turns_used (tools.test_loop.CheckTests.test_check_reports_turns_used) ... ok
+test_emergency_short_circuits_without_model (tools.test_loop.CheckTests.test_emergency_short_circuits_without_model) 
+... ok
+test_guardrails (tools.test_loop.CheckTests.test_guardrails) ... ok
+test_offline_baseline_red (tools.test_loop.CheckTests.test_offline_baseline_red) ... ok
+test_otp_is_redacted_before_model (tools.test_loop.CheckTests.test_otp_is_redacted_before_model) ... ok
+test_safety_net_overrules_uncautious_model (tools.test_loop.CheckTests.test_safety_net_overrules_uncautious_model) ... 
+ok
+test_dotenv_loads_without_overriding (tools.test_loop.EnvTests.test_dotenv_loads_without_overriding) ... ok
+test_dotenv_missing_file_loads_zero (tools.test_loop.EnvTests.test_dotenv_missing_file_loads_zero) ... ok
+test_build_tools_match_specs (tools.test_loop.LayoutTests.test_build_tools_match_specs) ... ok
+test_paths_point_at_repo_layout (tools.test_loop.LayoutTests.test_paths_point_at_repo_layout) ... ok
+test_placeholders_all_filled_from_data (tools.test_loop.LayoutTests.test_placeholders_all_filled_from_data) ... ok
+test_turn_budgets_share_one_default (tools.test_loop.LayoutTests.test_turn_budgets_share_one_default) ... ok
+test_unknown_country_has_no_verified_hotline 
+(tools.test_loop.LayoutTests.test_unknown_country_has_no_verified_hotline) ... ok
+test_unverified_hotline_stays_marked (tools.test_loop.LayoutTests.test_unverified_hotline_stays_marked) ... ok
+test_run_agent_files_memo (tools.test_loop.MemoTests.test_run_agent_files_memo) ... ok
+test_max_turns_stop (tools.test_loop.StopTests.test_max_turns_stop) ... ok
+test_repeat_calls_stop (tools.test_loop.StopTests.test_repeat_calls_stop) ... ok
+test_final_answer_ends_turn (tools.test_loop.TurnTests.test_final_answer_ends_turn) ... ok
+test_tool_then_final (tools.test_loop.TurnTests.test_tool_then_final) ... ok
+test_unknown_tool_is_reported_not_raised (tools.test_loop.TurnTests.test_unknown_tool_is_reported_not_raised) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 1.091s
+
+OK
