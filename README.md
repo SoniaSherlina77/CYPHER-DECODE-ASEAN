@@ -89,7 +89,7 @@ Bot:  这看起来是诈骗。
 | Rule-based triage with plain-language reasons | LLM agent with tool calls, using the included system prompt |
 | 4-language replies, voice-style mode, hotline by country | Real speech in and out |
 | "Already scammed" emergency guidance (in the system prompt) | Phone-alert mock-up and pilot |
-| **WhatsApp bot**: file-name check, "already scammed" flow ([app integration](app integration/whatsapp-integration.md)) |
+| **WhatsApp bot**: file-name check, "already scammed" flow ([app integration](/whatsapp-integration.md)) |
 | **Agent Console**: a browser UI to start, monitor and steer the project ([ui](/console.md)) an LLM agent behind it |
 | 86 unit tests `data/`, sample evaluation, CI, Docker | Larger test set; review by native speakers |
 
